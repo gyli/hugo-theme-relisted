@@ -2,7 +2,7 @@
 
 A minimalistic Hugo blogging theme: a plain list of posts, and pages that put the text first. Relisted is a reworked version of [Listed](https://github.com/ronv/listed).
 
-![Screenshot](https://raw.githubusercontent.com/gyli/hugo-theme-relisted/master/images/preview.png)
+![Screenshot](images/preview.png)
 
 ### What's Different from Listed
 
@@ -17,13 +17,11 @@ A minimalistic Hugo blogging theme: a plain list of posts, and pages that put th
 - Header and footer menus from your site config
 - Responsive layout, no JavaScript (except optional Google Analytics)
 - Table of contents, heading anchors, and syntax highlighting
-- `figure`, `table`, `table_of_contents`, and `tagcloud` shortcodes
 - Lazy-loaded images that link to the full-size file
 - Tags and categories, with a page for each
 - Full-text RSS feed
 - Open Graph, Twitter cards, and Schema.org data
 - Colors, fonts, and width set in your site config
-- English and Simplified Chinese interface text, easy to translate
 
 ### Installation
 
