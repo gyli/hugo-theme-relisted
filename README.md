@@ -4,20 +4,26 @@ A minimalistic Hugo blogging theme: a plain list of posts, and pages that put th
 
 ![Screenshot](https://raw.githubusercontent.com/gyli/hugo-theme-relisted/master/images/preview.png)
 
-### What's Changed from Listed
+### What's Different from Listed
 
-- **Redesigned for reading.** New typography, softer colors, a layout tuned for phones, and styled code, tables, quotes, figures, and table of contents.
-- **Ready for any site.** Nothing is hard-coded. Menus, author, sections, colors, fonts, and width come from your site config, and the interface text can be translated.
-- **Built for current Hugo.** Rewritten for Hugo's current template system and CSS pipeline, with no deprecated features and no Sass or extended edition needed.
+- **Works with current Hugo.** Listed no longer builds on current Hugo. Relisted needs Hugo 0.160.0 or newer, any edition, and uses no deprecated features.
+- **Ready for any site.** Listed hard-codes its site name, menu links, and its author's details in the feeds. Relisted takes all of them from your site config.
+- **Better for reading.** New typography and colors, a phone layout with a menu button, and post pages that show the date, tags, and categories.
+- **More for writing.** A table of contents, styled tables and figures, images that link to their full size, and newer/older pages for long post lists.
 
 ### Features
 
+- A plain list of posts, with newer/older pages
+- Header and footer menus from your site config
 - Responsive layout, no JavaScript (except optional Google Analytics)
 - Table of contents, heading anchors, and syntax highlighting
-- Tags and categories
+- `figure`, `table`, `table_of_contents`, and `tagcloud` shortcodes
 - Lazy-loaded images that link to the full-size file
+- Tags and categories, with a page for each
 - Full-text RSS feed
 - Open Graph, Twitter cards, and Schema.org data
+- Colors, fonts, and width set in your site config
+- English and Simplified Chinese interface text, easy to translate
 
 ### Installation
 
