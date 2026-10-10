@@ -3,6 +3,7 @@ title: "Markdown Syntax Guide"
 date: 2026-10-01
 description: "How headings, lists, code, tables, quotes and figures look in Relisted."
 tags: ["Markdown", "Guide"]
+categories: ["Docs"]
 ---
 
 {{< table_of_contents >}}
@@ -58,6 +59,21 @@ print(greet("Relisted"))
 | Code    | Monokai highlighting by default |
 | Figure  | Lazy-loaded, links to the full-size image |
 
+The `table` shortcode adds CSS classes to a table, for example striped rows:
+
+{{< table "table table-striped" >}}
+| Shortcode | Use |
+| --------- | --- |
+| `table_of_contents` | Insert the table of contents |
+| `figure` | Insert an image with a caption |
+| `table` | Add classes to a table |
+| `tagcloud` | List the tags on the site |
+{{< /table >}}
+
 ## Figures
+
+A Markdown image:
+
+![The same diagram, inserted with Markdown](diagram.svg)
 
 {{< figure src="diagram.svg" alt="A simple diagram with three boxes connected by arrows" caption="A figure inserted with the `figure` shortcode." >}}

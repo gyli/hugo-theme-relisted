@@ -2,9 +2,8 @@
 
 [module]
   [module.hugoVersion]
-    # The stylesheet is compiled from SCSS with toCSS, which needs the extended edition.
-    extended = true
-    min = "0.158.0"
+    # css.Build with the vars option needs v0.160.0 or newer.
+    min = "0.160.0"
 
 [params]
   # Author name, used in meta tags, structured data and the footer.
@@ -19,3 +18,20 @@
   images = []
   # Where the site title in the header links to. Defaults to the first main section.
   blogURL = ""
+
+  # CSS variables. Set any of them under [params.style] in your site config.
+  # color-link-underline and color-selection are not set here: they default to
+  # color-accent at 35% and 15% opacity, and you can set them to override that.
+  [params.style]
+    font-body = "system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif"
+    font-mono = 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace'
+    color-text = "#1f1f1f"
+    color-bg = "#fdfdfc"
+    color-muted = "#6b6b6b"
+    color-quote = "#4a4a4a"
+    color-accent = "#1d5fa8"
+    color-code-bg = "#eee"
+    color-border = "#ddd"
+    color-table-head = "#f6f6f6"
+    content-width = "66ch"
+    content-width-mobile = "52ch"

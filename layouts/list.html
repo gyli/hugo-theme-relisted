@@ -1,0 +1,5 @@
+{{ define "main" }}
+  {{- /* Lists the regular pages in the main sections, newest first. */}}
+  {{- $pages := where site.RegularPages "Section" "in" site.MainSections }}
+  {{- partial "post-list.html" (.Paginate $pages.ByDate.Reverse) }}
+{{ end }}

@@ -1,0 +1,5 @@
+{{ define "main" }}
+  {{- $label := T .Data.Singular | default (.Data.Singular | title) }}
+  <article><h1>{{ T "termHeading" (dict "Label" $label "Title" .Title) | default (printf "%s: %s" $label .Title) }}</h1></article>
+  {{- partial "post-list.html" (.Paginate .Pages.ByDate.Reverse) }}
+{{ end }}

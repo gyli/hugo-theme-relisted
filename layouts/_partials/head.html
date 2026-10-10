@@ -5,9 +5,9 @@
   <meta name="author" content="{{ .Site.Params.author }}">
   <title>{{ if or .IsHome (not .IsPage) }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
   <meta name="description" content="{{ if ne .Description "" }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
-{{ template "_internal/schema.html" . }}
-{{ template "_internal/opengraph.html" . }}
-{{ template "_internal/twitter_cards.html" . }}
+{{ partial "schema.html" . }}
+{{ partial "opengraph.html" . }}
+{{ partial "twitter_cards.html" . }}
   <link rel="canonical" href="{{ .Permalink | absURL }}">
 {{- with site.Config.Services.GoogleAnalytics.ID }}
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
@@ -20,8 +20,15 @@
 {{- $type := index (dict ".png" "image/png" ".svg" "image/svg+xml" ".ico" "image/x-icon") (path.Ext .) }}
   <link rel="shortcut icon"{{ with $type }} type="{{ . }}"{{ end }} href="{{ . | absURL }}" />
 {{- end }}
-  {{ $styles := resources.Get "scss/styles.scss" | toCSS (dict "outputStyle" "compressed") | minify }}
-  <style>{{ $styles.Content | safeCSS }}</style>
+  {{- /* The target is the "baseline widely available" browser set from the Hugo docs. css.Build lowers nesting for it. */}}
+  {{- $opts := dict
+    "minify" true
+    "target" (slice "chrome115" "edge115" "firefox116" "ios16.4" "opera101" "safari16.4")
+    "vars" site.Params.style
+  }}
+  {{- with resources.Get "css/main.css" | css.Build $opts }}
+  <style>{{ .Content | safeCSS }}</style>
+  {{- end }}
   {{ if .IsHome -}}
 <script type="application/ld+json">
 {
@@ -93,5 +100,5 @@
 }
 </script>
 {{ end }}
-{{ template "_internal/google_analytics.html" . }}
+{{ partial "google_analytics.html" . }}
 </head>

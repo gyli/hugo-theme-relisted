@@ -1,0 +1,22 @@
+{{- /* Renders a list of posts with dates, and newer/older links. The context is a paginator. */ -}}
+<section>
+  <ul reversed class="list">
+    {{- range .Pages }}
+    <li>
+      <a class="link" href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a>
+      <hr class="hr-list">
+      <time class="g time" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+    </li>
+    {{- end }}
+  </ul>
+</section>
+{{- if gt .TotalPages 1 }}
+<nav class="nav">
+  {{- with .Prev }}
+  <a class="prev" href="{{ .URL }}">{{ T "newer" }}</a>
+  {{- end }}
+  {{- with .Next }}
+  <a class="next" href="{{ .URL }}">{{ T "older" }}</a>
+  {{- end }}
+</nav>
+{{- end }}

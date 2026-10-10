@@ -6,12 +6,31 @@ theme = "relisted"
 [pagination]
   pagerSize = 20
 
+# Optional: a Google Analytics ID. Nothing is loaded when it is not set.
+# googleAnalytics = "G-XXXXXXXXXX"
+
 [params]
+  # Used in meta tags, structured data, and the footer.
   author = "Jane Doe"
+  # Used when a page has no description of its own.
   description = "A demo site for the Relisted Hugo theme."
+  # Paths under static/. All optional.
+  # favicon = "favicon.png"
+  # logo = "logo.png"
+  # images = ["social-preview.png"]
+  # Where the site title links to. Defaults to the first main section.
+  # blogURL = "/posts/"
+  # Added to the RSS feed.
+  # authorEmail = "jane@example.org"
+
+  # Optional: change the theme's CSS variables. See the theme's hugo.toml for all of them.
+  # [params.style]
+  #   color-accent = "#b5442c"
+  #   content-width = "72ch"
 
 [taxonomies]
   tag = "tags"
+  category = "categories"
 
 [menu]
   [[menu.main]]

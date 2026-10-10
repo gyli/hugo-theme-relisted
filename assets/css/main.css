@@ -1,5 +1,6 @@
-@import "custom";
-@import "variables";
+/* Theme variables come from params.style in the site config. The theme's
+   defaults are in its hugo.toml. Hugo injects them here as :root variables. */
+@import "hugo:vars";
 
 *, :after, :before {
     box-sizing: border-box;
@@ -11,19 +12,19 @@ html {
 }
 
 ::selection {
-    background: $color-selection;
+    background: var(--color-selection, color-mix(in srgb, var(--color-accent) 15%, transparent));
 }
 
 body {
-    font: 1.8rem/1.7 $font-body;
+    font: 1.8rem/1.7 var(--font-body);
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     margin: 0;
-    color: $color-text;
+    color: var(--color-text);
     height: 100%;
     position: relative;
-    background: $color-bg;
+    background: var(--color-bg);
 
     @media only screen and (max-width: 768px){
         font-size: 1.7rem;
@@ -76,10 +77,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 blockquote {
-    border-left: 3px solid $color-link-underline;
+    border-left: 3px solid var(--color-link-underline, color-mix(in srgb, var(--color-accent) 35%, transparent));
     padding-left: 1.8rem;
     margin: 0;
-    color: $color-quote;
+    color: var(--color-quote);
 }
 
 a,
@@ -104,7 +105,7 @@ header {
 
         @media only screen and (max-width: 768px) {
             &:checked+label>.fa-bars {
-                color: $color-muted;
+                color: var(--color-muted);
             }
 
             &:checked+label+ul {
@@ -134,7 +135,7 @@ header {
             content: "\2261"; 
         }
         &:hover, &:focus {
-            color: $color-muted;
+            color: var(--color-muted);
         }
     }
 
@@ -155,7 +156,7 @@ header {
             max-height: 0;
             width: 100%;
             transition: opacity 0.25s, max-height 0.15s linear;
-            background-color: $color-bg;
+            background-color: var(--color-bg);
             border-top: solid 1px #333;
             border-bottom: solid 1px #333;
         }
@@ -205,7 +206,7 @@ header {
         margin-bottom: 3rem;
 
         time {
-            color: $color-muted;
+            color: var(--color-muted);
         }
     
         @media only screen and (max-width: 768px){
@@ -236,13 +237,13 @@ header {
 }
 
 .content {
-    // max-width is the text width, padding goes outside it
+    /* max-width is the text width, padding goes outside it */
     box-sizing: content-box;
-    max-width: $content-width;
+    max-width: var(--content-width);
     padding: 4rem 5rem 24rem 5rem;
     margin: 0 auto;
     @media only screen and (max-width: 768px){
-        max-width: $content-width-mobile;
+        max-width: var(--content-width-mobile);
         padding: 2rem 1.5rem 18rem 1.5rem;
     }
 }
@@ -252,15 +253,15 @@ article {
         margin-bottom: 5rem;
         font-size: 1.5rem;
         line-height: 1.8;
-        color: $color-muted;
+        color: var(--color-muted);
 
         a, a:visited {
-            color: $color-muted;
+            color: var(--color-muted);
             text-decoration: none;
         }
 
         a:hover {
-            color: $color-accent;
+            color: var(--color-accent);
         }
     }
 
@@ -342,11 +343,11 @@ article {
     }
 
     a, a:visited{
-        color: $color-accent;
+        color: var(--color-accent);
         text-decoration: underline;
         text-decoration-thickness: 1px;
         text-underline-offset: 0.2em;
-        text-decoration-color: $color-link-underline;
+        text-decoration-color: var(--color-link-underline, color-mix(in srgb, var(--color-accent) 35%, transparent));
         transition: text-decoration-color .15s;
     }
     
@@ -375,7 +376,7 @@ article {
 
     .post-meta {
         font-size: 1.4rem;
-        color: $color-muted;
+        color: var(--color-muted);
         margin-bottom: 5rem;
 
         @media only screen and (max-width: 768px) {
@@ -384,12 +385,12 @@ article {
 
         span {
             a, a:visited {
-                color: $color-muted;
+                color: var(--color-muted);
                 text-decoration: none;
             }
 
             a:hover {
-                color: $color-accent;
+                color: var(--color-accent);
             }
 
             &:after{
@@ -416,16 +417,16 @@ article {
     }
 
     code, pre {
-        font-family: $font-mono;
+        font-family: var(--font-mono);
         font-size: 0.875em;
-        background-color: $color-code-bg;
+        background-color: var(--color-code-bg);
         text-size-adjust: 100%;
         -ms-text-size-adjust: 100%;
         -moz-text-size-adjust: 100%;
         -webkit-text-size-adjust: 100%;
     }
 
-    // Inline code only. Code inside a block keeps the block's size and has no pill.
+    /* Inline code only. Code inside a block keeps the block's size and has no pill. */
     code {
         padding: .15em .35em;
         border-radius: 4px;
@@ -437,7 +438,7 @@ article {
         border-radius: 0;
     }
 
-    // Classes added by the table shortcode, for example {{< table "table table-striped" >}}.
+    /* Classes added by the table shortcode, for example {{< table "table table-striped" >}}. */
     .table {
         width: 100%;
         margin: 3rem 0;
@@ -463,14 +464,14 @@ article {
 
     th,
     td {
-        border: 1px solid $color-border;
+        border: 1px solid var(--color-border);
         padding: 0.8rem 1rem;
         text-align: left;
         vertical-align: top;
     }
 
     th {
-        background-color: $color-table-head;
+        background-color: var(--color-table-head);
         font-weight: 600;
     }
     
@@ -480,15 +481,15 @@ article {
 
     figcaption {
         font-size: 1.5rem;
-        color: $color-muted;
+        color: var(--color-muted);
 
         h4, p {
             margin-top: .6rem;
         }
     }
 
-    // No hover underline on image links: it looks noisy, and on a block
-    // element the 1px border pushes the content below it down.
+    /* No hover underline on image links: it looks noisy, and on a block
+       element the 1px border pushes the content below it down. */
     .figure-link,
     .figure-link:hover {
         display: block;
@@ -503,7 +504,7 @@ footer {
     position: absolute;
     bottom: 0;
     font-size: 1.3rem;
-    color: $color-muted;
+    color: var(--color-muted);
 
     div {
         margin: 1.8rem 0;
@@ -521,7 +522,7 @@ footer {
 
     span:after{
         padding: 0 0.4rem;
-        content:'·';
+        content:'\00b7';
     }
 
     span:last-child:after{
@@ -549,7 +550,5 @@ hr {
 img {
     max-width: 100%;
     height: auto;
-    // display: block;
     margin: 0 auto;
 }
-  

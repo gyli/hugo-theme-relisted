@@ -3,4 +3,6 @@ newer = "← Newer"
 older = "Older →"
 tag = "Tag"
 category = "Category"
+# Heading of a term page, for example "Tag: Hugo".
+termHeading = "{{ .Label }}: {{ .Title }}"
 pageNotFound = "The page you requested doesn't exist."
