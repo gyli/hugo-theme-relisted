@@ -1,0 +1,35 @@
+baseURL = "https://example.org/"
+locale = "en-us"
+title = "Relisted"
+theme = "relisted"
+
+[pagination]
+  pagerSize = 20
+
+[params]
+  author = "Jane Doe"
+  description = "A demo site for the Relisted Hugo theme."
+
+[taxonomies]
+  tag = "tags"
+
+[menu]
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 10
+
+  [[menu.footer]]
+    name = "RSS"
+    url = "/index.xml"
+    weight = 10
+
+  [[menu.footer]]
+    name = "About"
+    url = "/about/"
+    weight = 20
+
+[markup]
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3

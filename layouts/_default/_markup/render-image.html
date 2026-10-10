@@ -1,0 +1,30 @@
+{{- $dest := .Destination | safeURL -}}
+{{- $width := 0 -}}
+{{- $height := 0 -}}
+{{- /* Read the size of local raster images. SVG has no pixel size, so skip it. */ -}}
+{{- if and (not (strings.HasPrefix $dest "http")) (ne (path.Ext $dest) ".svg") -}}
+  {{- $static := path.Join "/static" $dest -}}
+  {{- if fileExists $static -}}
+    {{- $cfg := imageConfig $static -}}
+    {{- $width = $cfg.Width -}}
+    {{- $height = $cfg.Height -}}
+  {{- else -}}
+    {{- with $.Page.Resources.GetMatch $dest -}}
+      {{- if eq .ResourceType "image" -}}
+        {{- $width = .Width -}}
+        {{- $height = .Height -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+<img
+  src="{{ $dest }}"
+  alt="{{ .Text }}"
+  loading="lazy"
+  decoding="async"
+  {{- if and $width $height }}
+  width="{{ $width }}"
+  height="{{ $height }}"
+  {{- end }}
+  class="full-width"
+/>

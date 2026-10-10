@@ -1,0 +1,21 @@
+# Theme defaults. Settings in your site's config take precedence.
+
+[module]
+  [module.hugoVersion]
+    # The stylesheet is compiled from SCSS with toCSS, which needs the extended edition.
+    extended = true
+    min = "0.158.0"
+
+[params]
+  # Author name, used in meta tags, structured data and the footer.
+  author = ""
+  # Site description, used when a page has no description of its own.
+  description = ""
+  # Favicon path under static/, for example "favicon.png". Leave empty for no favicon.
+  favicon = ""
+  # Logo path under static/, used as the publisher logo in structured data.
+  logo = ""
+  # Fallback social preview images (og:image), for pages without images in front matter.
+  images = []
+  # Where the site title in the header links to. Defaults to the first main section.
+  blogURL = ""

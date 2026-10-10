@@ -1,0 +1,6 @@
+skipToMain = "Skip to main"
+newer = "← Newer"
+older = "Older →"
+tag = "Tag"
+category = "Category"
+pageNotFound = "The page you requested doesn't exist."

@@ -1,0 +1,8 @@
+<footer>
+{{- with site.Menus.footer }}
+<div>
+{{- range . }}<span><a href="{{ .URL | relLangURL }}" title="{{ .Title | default .Name }}">{{- .Pre }}{{- .Name -}}{{ .Post -}}</a></span>{{- end }}
+</div>
+{{- end }}
+<div>© {{ dateFormat "2006" now }} {{ .Site.Params.author }}</div>
+</footer>

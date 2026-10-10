@@ -1,0 +1,30 @@
+{{- /*
+  Overrides Hugo's built-in figure shortcode.
+  - Lazy-loads the image and sets width/height (from the page bundle) to avoid layout shift.
+  - Links the image to its full-size file, opened in a new tab, so readers can zoom, for example on phones.
+  Supports: src, alt, title, caption, link, target, rel, class, width, height.
+*/ -}}
+{{- $src := .Get "src" -}}
+{{- $width := .Get "width" -}}
+{{- $height := .Get "height" -}}
+{{- if not $width -}}
+  {{- with .Page.Resources.GetMatch $src -}}
+    {{- /* SVG has no pixel size, so skip it. */ -}}
+    {{- if and (eq .ResourceType "image") (ne .MediaType.SubType "svg") -}}
+      {{- $width = .Width -}}
+      {{- $height = .Height -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $href := .Get "link" | default $src -}}
+<figure{{ with .Get "class" }} class="{{ . }}"{{ end }}>
+  <a class="figure-link" href="{{ $href }}" target="{{ .Get "target" | default "_blank" }}" rel="{{ .Get "rel" | default "noopener" }}">
+    <img src="{{ $src }}"{{ with .Get "alt" }} alt="{{ . }}"{{ end }} loading="lazy" decoding="async"{{ with $width }} width="{{ . }}"{{ end }}{{ with $height }} height="{{ . }}"{{ end }}>
+  </a>
+  {{- if or (.Get "title") (.Get "caption") }}
+  <figcaption>
+    {{- with .Get "title" }}<h4>{{ . }}</h4>{{ end }}
+    {{- with .Get "caption" }}<p>{{ . | markdownify }}</p>{{ end }}
+  </figcaption>
+  {{- end }}
+</figure>

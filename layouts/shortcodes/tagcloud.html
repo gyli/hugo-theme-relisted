@@ -1,0 +1,8 @@
+{{- /*
+  Lists tags used at least `min` times (default 1), most used first.
+  Usage: {{< tagcloud >}} or {{< tagcloud min=3 >}}
+*/ -}}
+{{- $min := int (.Get "min" | default 1) -}}
+{{- range where site.Taxonomies.tags.ByCount "Count" ">=" $min }}
+<a href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }} <span>({{ .Count }})</span></a>
+{{- end }}

@@ -1,0 +1,1 @@
+{{- with .GetTerms "categories" }}<span>{{ range $i, $term := . }}{{ if $i }}, {{ end }}<a href="{{ $term.RelPermalink }}">{{ $term.LinkTitle }}</a>{{ end }}</span>{{ end -}}

@@ -1,0 +1,555 @@
+@import "custom";
+@import "variables";
+
+*, :after, :before {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+::selection {
+    background: $color-selection;
+}
+
+body {
+    font: 1.8rem/1.7 $font-body;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    color: $color-text;
+    height: 100%;
+    position: relative;
+    background: $color-bg;
+
+    @media only screen and (max-width: 768px){
+        font-size: 1.7rem;
+    }
+}
+
+main {
+    min-height: 100vh;
+    position:relative;
+    display: block;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #eee;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+h1, h2, h3, h4, h5, strong, b {
+    font-size: inherit;
+    font-weight: 600;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.3;
+    text-wrap: balance;
+}
+
+.link {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-decoration: none;
+}
+
+.time {
+	font-variant-numeric: tabular-nums;
+	white-space: nowrap;
+}
+
+blockquote {
+    border-left: 3px solid $color-link-underline;
+    padding-left: 1.8rem;
+    margin: 0;
+    color: $color-quote;
+}
+
+a,
+a:visited {
+    color: inherit;
+}
+
+header {
+    padding-bottom: 7rem;
+    a {
+        text-decoration: none;
+    }
+
+    ul a:hover {
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.2em;
+    }
+
+    #menu-toggle {
+        display: none;
+
+        @media only screen and (max-width: 768px) {
+            &:checked+label>.fa-bars {
+                color: $color-muted;
+            }
+
+            &:checked+label+ul {
+                visibility: visible;
+                opacity: 1;
+                max-height: 100rem;
+            }
+        }
+    }
+    
+    .menu-button {
+        display: none;
+        float: right;
+
+        @media only screen and (max-width: 768px) {
+            position: relative;
+            top: -1rem;
+            display: block;
+        }
+    }
+
+    .fa-bars {
+        color: #000;
+        cursor: pointer;
+        font-size: 3rem;
+        &:after {
+            content: "\2261"; 
+        }
+        &:hover, &:focus {
+            color: $color-muted;
+        }
+    }
+
+    .navigation-list {
+        float: right;
+        list-style: none;
+        margin-bottom: 0;
+        margin-top: 0;
+
+        @media only screen and (max-width: 768px) {
+            position: absolute;
+            top: 8rem;
+            right: 0;
+            z-index: 5;
+            visibility: hidden;
+            opacity: 0;
+            padding: 0;
+            max-height: 0;
+            width: 100%;
+            transition: opacity 0.25s, max-height 0.15s linear;
+            background-color: $color-bg;
+            border-top: solid 1px #333;
+            border-bottom: solid 1px #333;
+        }
+    }
+
+    .navigation-item {
+        float: left;
+        margin: 0;
+        position: relative;
+
+        @media only screen and (max-width: 768px) {
+            float: none !important;
+            text-align: center;
+
+            a, span {
+                line-height: 5rem;
+                font-size: 1.8rem;
+            }
+        }
+
+        a, span {
+            margin-left: 2rem;
+        }
+    }
+
+    .title {
+        font-size: 2.4rem;
+        font-weight: 600;
+
+        @media only screen and (max-width: 768px) {
+            font-size: 2.0rem;
+        }
+    }
+}
+
+.list {
+    list-style-type: none;
+    padding-left: 0;
+
+    a {
+        font-size: 2rem;
+    }
+
+    li {
+        display: flex;
+        align-items: baseline;
+        margin-bottom: 3rem;
+
+        time {
+            color: $color-muted;
+        }
+    
+        @media only screen and (max-width: 768px){
+            flex-direction: column;
+            margin-bottom: 3.6rem;
+
+            a {
+                font-size: 1.8rem;
+                white-space: normal;
+            }
+
+            time {
+                font-size: 1.4rem;
+            }
+        }
+    }
+}
+
+.hr-list {
+    margin: 0 .5rem;
+    height: 1px;
+    border: 0;
+    border-bottom: 1px dotted #ccc;
+    flex: 1 0 1rem;
+    @media only screen and (max-width: 768px){
+        display: none;
+    }
+}
+
+.content {
+    // max-width is the text width, padding goes outside it
+    box-sizing: content-box;
+    max-width: $content-width;
+    padding: 4rem 5rem 24rem 5rem;
+    margin: 0 auto;
+    @media only screen and (max-width: 768px){
+        max-width: $content-width-mobile;
+        padding: 2rem 1.5rem 18rem 1.5rem;
+    }
+}
+
+article {
+    #TableOfContents {
+        margin-bottom: 5rem;
+        font-size: 1.5rem;
+        line-height: 1.8;
+        color: $color-muted;
+
+        a, a:visited {
+            color: $color-muted;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: $color-accent;
+        }
+    }
+
+    ul, ol {
+        padding-left: 1.8rem;
+    }
+
+    p, li {
+        text-wrap: pretty;
+    }
+
+    h1 {
+        font-size: 3.6rem;
+        font-weight: 700;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+        margin-bottom: 1.2rem;
+    }
+    
+    h2 {
+        font-size: 2.4rem;
+        letter-spacing: -0.01em;
+        margin-top: 5rem;
+    }
+    
+    h3 {
+        font-size: 2rem;
+        margin-top: 4rem;
+    }
+    
+    h4 {
+        font-size: 1.8rem;
+        margin-top: 3rem;
+    }
+    
+    h5 {
+        font-size: 1.8rem;
+        margin-top: 2.6rem;
+    }
+    
+    h6 {
+        font-size: 1.6rem;
+        margin-top: 2.2rem;
+    }
+
+    p {
+        margin-top: 1.8rem;
+    }
+
+    @media only screen and (max-width: 768px){
+        h1 {
+            font-size: 2.8rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            margin-top: 4rem;
+        }
+
+        h3 {
+            font-size: 1.9rem;
+            margin-top: 3rem;
+        }
+
+        h4 {
+            font-size: 1.8rem;
+            margin-top: 2.2rem;
+        }
+
+        h5 {
+            font-size: 1.7rem;
+            margin-top: 2rem;
+        }
+
+        h6 {
+            font-size: 1.7rem;
+            margin-top: 1.6rem;
+        }    
+    }
+
+    a, a:visited{
+        color: $color-accent;
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.2em;
+        text-decoration-color: $color-link-underline;
+        transition: text-decoration-color .15s;
+    }
+    
+    a:hover{
+        text-decoration-color: currentColor;
+    }
+
+    h1:hover .anchor,
+    h2:hover .anchor,
+    h3:hover .anchor,
+    h4:hover .anchor,
+    h5:hover .anchor,
+    h6:hover .anchor {
+        display: inline-flex;
+        color: #888;
+        margin-inline-start: 8px;
+        font-weight: 600;
+        user-select: none;
+        text-decoration: none;
+        border: 0;
+    }
+
+    .anchor:before{
+        content:"#";
+    }
+
+    .post-meta {
+        font-size: 1.4rem;
+        color: $color-muted;
+        margin-bottom: 5rem;
+
+        @media only screen and (max-width: 768px) {
+            font-size: 1.3rem;
+        }
+
+        span {
+            a, a:visited {
+                color: $color-muted;
+                text-decoration: none;
+            }
+
+            a:hover {
+                color: $color-accent;
+            }
+
+            &:after{
+                padding: 0 0.4rem;
+                content:'/';
+            }
+
+            &:last-child:after{
+                display:none;
+            }
+        }
+    }
+
+    pre {
+        padding: 1.2rem 1.6rem;
+        border-radius: 6px;
+        overflow: auto;
+    }
+
+    .highlight{
+        code, pre {
+            background: none;
+        }
+    }
+
+    code, pre {
+        font-family: $font-mono;
+        font-size: 0.875em;
+        background-color: $color-code-bg;
+        text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        -moz-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+    }
+
+    // Inline code only. Code inside a block keeps the block's size and has no pill.
+    code {
+        padding: .15em .35em;
+        border-radius: 4px;
+    }
+
+    pre code {
+        font-size: 1em;
+        padding: 0;
+        border-radius: 0;
+    }
+
+    // Classes added by the table shortcode, for example {{< table "table table-striped" >}}.
+    .table {
+        width: 100%;
+        margin: 3rem 0;
+    }
+
+    .table th,
+    .table td {
+        padding: 0.8rem;
+        vertical-align: top;
+    }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    table {
+        width: 100%;
+        margin: 2rem 0;
+        border-collapse: collapse;
+        font-size: 1.6rem;
+        line-height: 1.5;
+    }
+
+    th,
+    td {
+        border: 1px solid $color-border;
+        padding: 0.8rem 1rem;
+        text-align: left;
+        vertical-align: top;
+    }
+
+    th {
+        background-color: $color-table-head;
+        font-weight: 600;
+    }
+    
+    figure {
+        margin: 1.8rem 0;
+    }
+
+    figcaption {
+        font-size: 1.5rem;
+        color: $color-muted;
+
+        h4, p {
+            margin-top: .6rem;
+        }
+    }
+
+    // No hover underline on image links: it looks noisy, and on a block
+    // element the 1px border pushes the content below it down.
+    .figure-link,
+    .figure-link:hover {
+        display: block;
+        border: none;
+        text-decoration: none;
+        cursor: zoom-in;
+    }
+
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    font-size: 1.3rem;
+    color: $color-muted;
+
+    div {
+        margin: 1.8rem 0;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.2em;
+    }
+
+    span:after{
+        padding: 0 0.4rem;
+        content:'·';
+    }
+
+    span:last-child:after{
+        display:none;
+    }
+}
+
+.nav {
+    margin-top: 4rem;
+    display: flex;
+}
+
+.nav a {
+    text-decoration: none;
+}
+
+.nav .next {
+    margin-left: auto;
+}
+
+hr {
+    margin: 5rem 0
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    // display: block;
+    margin: 0 auto;
+}
+  

@@ -1,0 +1,25 @@
+{{- /* The site title links to params.blogURL, or to the first main section, or to the home page. */ -}}
+{{- $titleURL := "/" | relLangURL -}}
+{{- with site.Params.blogURL -}}
+  {{- $titleURL = . | relLangURL -}}
+{{- else -}}
+  {{- with site.MainSections -}}{{- with site.GetPage (index . 0) -}}{{- $titleURL = .RelPermalink -}}{{- end -}}{{- end -}}
+{{- end -}}
+<header>
+<span class="title"><a href="{{ $titleURL }}">{{ .Site.Title }}</a></span>
+{{- $siteHost := (urls.Parse .Site.BaseURL).Host }}
+{{- with .Site.Menus.main }}
+<input type="checkbox" id="menu-toggle" />
+<label class="menu-button" for="menu-toggle">
+  <div class="fa-bars" aria-hidden="true"></div>
+</label>
+<ul class="navigation-list">
+{{- range sort . }}
+{{- $host := (urls.Parse .URL).Host }}
+{{- $external := and (ne $host "") (ne $host $siteHost) }}
+  <li class="navigation-item">
+    <a class="navigation-link" href="{{ .URL | relLangURL }}"{{ if $external }} target="_blank" rel="noopener noreferrer"{{ end }}>{{- .Pre }}{{- .Name -}}{{ .Post -}}</a>
+  </li>
+{{- end }}</ul>
+{{- end }}
+</header>

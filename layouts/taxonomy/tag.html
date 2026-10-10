@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="{{ .Site.Language.Locale | default "en" }}">
+  {{ partial "head.html" . }}
+<body>
+  <a class="skip-link" href="#main">{{ T "skipToMain" }}</a>
+  <main id="main">
+  <div class="content">
+    {{ partial "header.html" . }}
+    <article><h1>{{ T "tag" }}: {{ .Title }}</h1></article>
+    <section>
+      <ul reversed class="list">
+        {{ range .Data.Pages }}
+          <li>
+            <a class="link" href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a>
+            <hr class="hr-list">
+            <time class="g time" datetime="{{ dateFormat "2006-01-02" .Date }}">{{ dateFormat "2006-01-02" .Date }}</time>
+          </li>
+        {{ end }}
+      </ul>
+    </section>
+    {{ $paginator := .Paginate .RegularPages }}
+    {{ if gt $paginator.TotalPages 1 }}
+    <nav class="nav">
+      {{ if $paginator.HasPrev }}
+      <a class="prev" href="{{ $paginator.Prev.URL }}">{{ T "newer" }}</a>
+      {{ end }}
+      {{ if $paginator.HasNext }}
+      <a class="next" href="{{ $paginator.Next.URL }}">{{ T "older" }}</a>
+      {{ end }}
+    </nav>
+    {{ end }}
+
+    {{ partial "footer.html" . }}
+  </div>
+</main>
+</body>
+</html>
