@@ -1,63 +1,42 @@
 # Relisted
 
-Relisted is a minimalistic Hugo blogging theme, based on [Listed](https://github.com/ronv/listed).
+A minimalistic Hugo blogging theme: a plain list of posts, and pages that put the text first. Relisted is a reworked version of [Listed](https://github.com/ronv/listed).
 
-### What's Changed
+![Screenshot](https://raw.githubusercontent.com/gyli/hugo-theme-relisted/master/images/preview.png)
 
-Relisted keeps the plain list of posts from Listed, and makes it easier to read and easier to reuse:
+### What's Changed from Listed
 
-- **Better reading.** Clearer heading sizes, larger text on phones, softer colors, and styled code blocks, tables, quotes, and table of contents.
-- **Nothing hard-coded.** The menus, author, favicon, and listed sections all come from your site config, so you do not need to edit the theme.
-- **Easy to customize.** Change colors, fonts, and width in your site config. Translate the interface text in `i18n/`.
-- **Works with current Hugo.** Uses Hugo's current template layout and `css.Build`, with no deprecated features. Works with the standard edition, no extended edition or Sass needed.
+- **Redesigned for reading.** New typography, softer colors, a layout tuned for phones, and styled code, tables, quotes, figures, and table of contents.
+- **Ready for any site.** Nothing is hard-coded. Menus, author, sections, colors, fonts, and width come from your site config, and the interface text can be translated.
+- **Built for current Hugo.** Rewritten for Hugo's current template system and CSS pipeline, with no deprecated features and no Sass or extended edition needed.
 
 ### Features
 
-- Minimalistic, clean and simple design
-- Responsive design
-- Inline, minified CSS
-- Anchor headings
-- Table of contents
-- Syntax highlighting
+- Responsive layout, no JavaScript (except optional Google Analytics)
+- Table of contents, heading anchors, and syntax highlighting
 - Tags and categories
 - Lazy-loaded images that link to the full-size file
 - Full-text RSS feed
-- 404 page
-- SEO optimized (Twitter cards, Open Graph, Schema.org)
-- No JavaScript, except Google Analytics when you enable it
+- Open Graph, Twitter cards, and Schema.org data
 
 ### Installation
 
-Relisted needs Hugo 0.160.0 or newer. Any edition works.
+Needs Hugo 0.160.0 or newer.
 
 ```sh
 git submodule add https://github.com/gyli/hugo-theme-relisted.git themes/relisted
 ```
 
-Then add `theme = "relisted"` to your site config. See [`exampleSite/hugo.toml`](https://github.com/gyli/hugo-theme-relisted/blob/master/exampleSite/hugo.toml) for the parameters and menus.
+Add `theme = "relisted"` to your site config. [`exampleSite/hugo.toml`](https://github.com/gyli/hugo-theme-relisted/blob/master/exampleSite/hugo.toml) shows the available settings.
 
-To run the example site:
-
-```sh
-cd themes/relisted/exampleSite
-hugo server --themesDir ../..
-```
-
-### Customization
-
-Set any of the theme's CSS variables under `[params.style]` in your site config. The full list with default values is in the theme's [`hugo.toml`](https://github.com/gyli/hugo-theme-relisted/blob/master/hugo.toml).
+To change colors, fonts, or width, set CSS variables under `[params.style]`. The defaults are in the theme's [`hugo.toml`](https://github.com/gyli/hugo-theme-relisted/blob/master/hugo.toml).
 
 ```toml
 [params.style]
   color-accent = "#b5442c"
-  font-body = "Charter, Georgia, serif"
   content-width = "72ch"
 ```
 
-### Screenshot
-
-![Screenshot](https://raw.githubusercontent.com/gyli/hugo-theme-relisted/master/images/preview.png)
-
 ### License
 
-MIT. Listed is copyright © 2021 Ronalds Vilciņš, and was released under the [MIT license](https://github.com/ronv/listed/blob/bc251c5683fdd40ebc3383233b60c9fee17cc3f9/LICENSE.md) when Relisted was forked from it. Relisted changes are copyright © 2022-2026 Guangyang Li.
+MIT. Listed is copyright © 2021 Ronalds Vilciņš, and was under the [MIT license](https://github.com/ronv/listed/blob/bc251c5683fdd40ebc3383233b60c9fee17cc3f9/LICENSE.md) when Relisted was forked from it. Relisted changes are copyright © 2022-2026 Guangyang Li.
