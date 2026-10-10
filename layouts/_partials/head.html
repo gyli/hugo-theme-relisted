@@ -1,6 +1,5 @@
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="{{ .Site.Params.author }}">
   <title>{{ if or .IsHome (not .IsPage) }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
@@ -37,8 +36,8 @@
     "name": "{{ .Site.Title }}",
     "url": "{{ .Site.BaseURL }}",
     "description": "{{ .Site.Params.description }}",
-    "thumbnailUrl": "{{ .Site.Params.Logo | absURL }}",
-    "license": "{{ .Site.Params.Copyright }}"
+    "thumbnailUrl": "{{ .Site.Params.logo | absURL }}",
+    "license": "{{ .Site.Params.copyright }}"
 }
 </script>
 {{ else if .IsPage }}
@@ -51,8 +50,7 @@
     "articleSection": "{{ .Section }}",
     "name": "{{ .Title | safeJS }}",
     "headline": "{{ .Title | safeJS }}",
-    "alternativeHeadline": "{{ .Params.lead }}",
-    "description": "{{ if .Description }}{{ .Description | safeJS }}{{ else }}{{ if .IsPage }}{{ .Summary | plainify }}{{ end }}{{ end }}",
+    "description": "{{ if .Description }}{{ .Description | safeJS }}{{ else }}{{ .Summary | plainify }}{{ end }}",
     "inLanguage": {{ .Site.Language.Locale | default "en-us" }},
     "isFamilyFriendly": "true",
     "mainEntityOfPage": {

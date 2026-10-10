@@ -5,7 +5,7 @@
     <li>
       <a class="link" href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a>
       <hr class="hr-list">
-      <time class="g time" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+      <time class="time" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
     </li>
     {{- end }}
   </ul>

@@ -9,6 +9,8 @@
 
 html {
     font-size: 62.5%;
+    /* Keep the layout from shifting between pages with and without a scrollbar. */
+    scrollbar-gutter: stable;
 }
 
 ::selection {
@@ -33,20 +35,19 @@ body {
 
 main {
     min-height: 100vh;
-    position:relative;
-    display: block;
+    position: relative;
 }
 
 .skip-link {
-  position: absolute;
-  top: -40px;
-  left: 0;
-  background: #eee;
-  z-index: 100;
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #eee;
+    z-index: 100;
 }
 
 .skip-link:focus {
-  top: 0;
+    top: 0;
 }
 
 h1, h2, h3, h4, h5, strong, b {
@@ -72,8 +73,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .time {
-	font-variant-numeric: tabular-nums;
-	white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
 }
 
 blockquote {
@@ -115,7 +116,7 @@ header {
             }
         }
     }
-    
+
     .menu-button {
         display: none;
         float: right;
@@ -132,7 +133,7 @@ header {
         cursor: pointer;
         font-size: 3rem;
         &:after {
-            content: "\2261"; 
+            content: "\2261";
         }
         &:hover, &:focus {
             color: var(--color-muted);
@@ -171,13 +172,13 @@ header {
             float: none !important;
             text-align: center;
 
-            a, span {
+            a {
                 line-height: 5rem;
                 font-size: 1.8rem;
             }
         }
 
-        a, span {
+        a {
             margin-left: 2rem;
         }
     }
@@ -208,7 +209,7 @@ header {
         time {
             color: var(--color-muted);
         }
-    
+
         @media only screen and (max-width: 768px){
             flex-direction: column;
             margin-bottom: 3.6rem;
@@ -280,28 +281,28 @@ article {
         letter-spacing: -0.02em;
         margin-bottom: 1.2rem;
     }
-    
+
     h2 {
         font-size: 2.4rem;
         letter-spacing: -0.01em;
         margin-top: 5rem;
     }
-    
+
     h3 {
         font-size: 2rem;
         margin-top: 4rem;
     }
-    
+
     h4 {
         font-size: 1.8rem;
         margin-top: 3rem;
     }
-    
+
     h5 {
         font-size: 1.8rem;
         margin-top: 2.6rem;
     }
-    
+
     h6 {
         font-size: 1.6rem;
         margin-top: 2.2rem;
@@ -339,7 +340,7 @@ article {
         h6 {
             font-size: 1.7rem;
             margin-top: 1.6rem;
-        }    
+        }
     }
 
     a, a:visited{
@@ -350,7 +351,7 @@ article {
         text-decoration-color: var(--color-link-underline, color-mix(in srgb, var(--color-accent) 35%, transparent));
         transition: text-decoration-color .15s;
     }
-    
+
     a:hover{
         text-decoration-color: currentColor;
     }
@@ -367,7 +368,6 @@ article {
         font-weight: 600;
         user-select: none;
         text-decoration: none;
-        border: 0;
     }
 
     .anchor:before{
@@ -410,10 +410,9 @@ article {
         overflow: auto;
     }
 
-    .highlight{
-        code, pre {
-            background: none;
-        }
+    /* Code inside a highlighted block takes the block's background. */
+    .highlight code {
+        background: none;
     }
 
     code, pre {
@@ -421,8 +420,6 @@ article {
         font-size: 0.875em;
         background-color: var(--color-code-bg);
         text-size-adjust: 100%;
-        -ms-text-size-adjust: 100%;
-        -moz-text-size-adjust: 100%;
         -webkit-text-size-adjust: 100%;
     }
 
@@ -474,7 +471,7 @@ article {
         background-color: var(--color-table-head);
         font-weight: 600;
     }
-    
+
     figure {
         margin: 1.8rem 0;
     }
@@ -488,12 +485,10 @@ article {
         }
     }
 
-    /* No hover underline on image links: it looks noisy, and on a block
-       element the 1px border pushes the content below it down. */
+    /* Image links have no underline. */
     .figure-link,
     .figure-link:hover {
         display: block;
-        border: none;
         text-decoration: none;
         cursor: zoom-in;
     }
@@ -550,5 +545,4 @@ hr {
 img {
     max-width: 100%;
     height: auto;
-    margin: 0 auto;
 }

@@ -1,6 +1,2 @@
-{{ $htmlTable := .Inner | markdownify }}
-{{ $class := .Get 0 }}
-{{ $old := "<table>" }}
-{{ $new := printf "<table class=\"%s\">" $class }}
-{{ $htmlTable := replace $htmlTable $old $new }}
-{{ $htmlTable | safeHTML }}
+{{- /* Wraps a Markdown table and adds CSS classes to it: {{< table "table table-striped" >}} */ -}}
+{{ replace (.Inner | markdownify) "<table>" (printf "<table class=%q>" (.Get 0)) | safeHTML }}

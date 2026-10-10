@@ -10,7 +10,7 @@
         {{ end }}
         <h1>{{ .Title }}</h1>
         <div class="post-meta">
-          {{ if not .Date.IsZero }}<span><time class="g time" datetime="{{ dateFormat "2006-01-02" .Date }}">{{ dateFormat "2006-01-02" .Date }}</time></span>{{ end }}{{ partial "categories.html" . }}{{ partial "tags.html" . }}
+          {{ if not .Date.IsZero }}<span><time class="time" datetime="{{ dateFormat "2006-01-02" .Date }}">{{ dateFormat "2006-01-02" .Date }}</time></span>{{ end }}{{ partial "categories.html" . }}{{ partial "tags.html" . }}
         </div>
         {{ .Content }}
         {{ if eq .Title "Projects" }}
