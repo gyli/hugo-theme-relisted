@@ -2,6 +2,8 @@ baseURL = "https://example.org/"
 locale = "en-us"
 title = "Relisted"
 theme = "relisted"
+# The sections listed on the home page and in the RSS feed.
+mainSections = ["posts"]
 
 [pagination]
   pagerSize = 20

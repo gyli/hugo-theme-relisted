@@ -27,7 +27,7 @@ Needs Hugo 0.160.0 or newer.
 git submodule add https://github.com/gyli/hugo-theme-relisted.git themes/relisted
 ```
 
-Add `theme = "relisted"` to your site config. [`exampleSite/hugo.toml`](https://github.com/gyli/hugo-theme-relisted/blob/master/exampleSite/hugo.toml) shows the available settings.
+Add `theme = "relisted"` and `mainSections = ["posts"]` (the sections to list) to your site config. [`exampleSite/hugo.toml`](https://github.com/gyli/hugo-theme-relisted/blob/master/exampleSite/hugo.toml) shows the available settings.
 
 To change colors, fonts, or width, set CSS variables under `[params.style]`. The defaults are in the theme's [`hugo.toml`](https://github.com/gyli/hugo-theme-relisted/blob/master/hugo.toml).
 
