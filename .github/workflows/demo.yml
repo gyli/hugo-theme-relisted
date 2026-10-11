@@ -26,15 +26,15 @@ jobs:
         run: |
           curl -sSLo hugo.deb "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-amd64.deb"
           sudo dpkg -i hugo.deb
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           path: relisted
       - id: pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
       - name: Build
         working-directory: relisted/exampleSite
         run: hugo --gc --minify --themesDir ../.. --baseURL "${{ steps.pages.outputs.base_url }}/"
-      - uses: actions/upload-pages-artifact@v4
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: relisted/exampleSite/public
 
@@ -46,4 +46,4 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
