@@ -20,7 +20,7 @@ Hover over a heading to see its anchor link.
 
 ## Paragraphs and Links
 
-A paragraph is plain text with [an internal link](/about/) and [an external link](https://gohugo.io/). External links open in a new tab. You can also use **bold text**, *italic text*, and `inline code`.
+A paragraph is plain text with [an internal link]({{< relref "/about" >}}) and [an external link](https://gohugo.io/). External links open in a new tab. You can also use **bold text**, *italic text*, and `inline code`.
 
 > A blockquote is shown with a thin bar on the left and softer text. Use it for quotes and short notes.
 

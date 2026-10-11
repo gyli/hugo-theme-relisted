@@ -3,6 +3,7 @@ license = "MIT"
 licenselink = "https://github.com/gyli/hugo-theme-relisted/blob/master/LICENSE.md"
 description = "A minimal theme for writing: a plain list of posts, readable typography, and no JavaScript."
 homepage = "https://github.com/gyli/hugo-theme-relisted"
+demosite = "https://gyli.github.io/hugo-theme-relisted/"
 tags = ["blog", "minimal", "simple", "clean", "responsive", "light", "personal", "writing"]
 features = ["table of contents", "syntax highlighting", "full-text RSS", "social cards", "structured data", "Google Analytics", "i18n", "no JavaScript"]
 

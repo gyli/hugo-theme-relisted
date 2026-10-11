@@ -1,8 +1,8 @@
 # Relisted
 
-A minimalistic Hugo blogging theme: a plain list of posts, and pages that put the text first. Relisted is a reworked version of [Listed](https://github.com/ronv/listed).
+A minimalistic Hugo blogging theme: a plain list of posts, and pages that put the text first. Relisted is a reworked version of [Listed](https://github.com/ronv/listed). See the [demo site](https://gyli.github.io/hugo-theme-relisted/).
 
-![Screenshot](images/preview.png)
+![Screenshot](https://raw.githubusercontent.com/gyli/hugo-theme-relisted/master/images/preview.png)
 
 ### What's Different from Listed
 
