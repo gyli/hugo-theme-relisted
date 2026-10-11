@@ -1,0 +1,5 @@
+# Repo tooling, left out of git archive and GitHub ZIP downloads.
+/.github export-ignore
+/AGENTS.md export-ignore
+/CLAUDE.md export-ignore
+/.gitattributes export-ignore
